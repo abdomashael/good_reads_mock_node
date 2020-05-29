@@ -38,14 +38,14 @@ const ListingCategories = () => {
     }
     if (categories[1]) {
         return (
-            <div className="listingCategories">
-                <h1>All Categories</h1>
-                <Card.Group itemsPerRow={4} className="container mt-5">
+            <>
+                <h1 className="tittle">All Categories</h1>
+                <Card.Group itemsPerRow={5} className="container mt-5">
                     {filtered.map(category => (
                         <Card key={category._id} border="info" className="categoryCrads">
                             <Card.Content>
                                 <Card.Header>{category.categoryName}</Card.Header>
-                                <Card.Description>{category.summary}</Card.Description>
+                                <Card.Description className="fonts">{category.summary}</Card.Description>
                             </Card.Content>
                             <Card.Content extra>
                                 <Link to={`/categorypage/${category._id}`}>
@@ -57,7 +57,7 @@ const ListingCategories = () => {
                     ))}
                 </Card.Group>
                 <Pagenation pageNumberHandler={pageNumberHandler} type={3}></Pagenation>
-            </div>
+            </>
         );
     }
     else {
