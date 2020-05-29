@@ -62,8 +62,8 @@ export default function SearchPage() {
     return (
         <MDBContainer>
 
-            <MDBRow md="12">
-                <MDBFormInline className="md-form mr-auto mb-4">
+            <MDBRow md="2">
+                <MDBFormInline className="md-form mr-auto mb-2">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search"
                            aria-label="Search" onChange={(e) => setSearchName(e.target.value)}/>
                     <MDBBtn gradient="aqua" rounded size="sm" type="button" className="mr-auto"
@@ -73,8 +73,8 @@ export default function SearchPage() {
                 </MDBFormInline>
             </MDBRow>
             <MDBRow>
-                <MDBCol md="6">
-                    <MDBRow className="mb-4">
+                <MDBCol md="2">
+                    <MDBRow className="mb-2">
                         <MDBInput
                             onClick={() => setRadioButton(1)}
                             checked={Radiobutton === 1 ? true : false}
@@ -85,7 +85,7 @@ export default function SearchPage() {
                         <label className="labelAd">Books</label>
                     </MDBRow>
 
-                    <MDBRow className="mb-4">
+                    <MDBRow className="mb-2">
                         <MDBInput
                             onClick={() => setRadioButton(2)}
                             checked={Radiobutton === 2 ? true : false}
@@ -97,7 +97,7 @@ export default function SearchPage() {
                         <label className="labelAd">Authors</label>
                     </MDBRow>
 
-                    <MDBRow className="mb-4">
+                    <MDBRow className="mb-2">
                         <MDBInput
                             onClick={() => setRadioButton(3)}
                             checked={Radiobutton === 3 ? true : false}
@@ -141,7 +141,7 @@ export default function SearchPage() {
                             currId = items._id;
                         }
                         return (
-                            <MDBCol md="4">
+                            <MDBCol md="2">
                                 <Card>
                                     <Image
                                         src={img}
