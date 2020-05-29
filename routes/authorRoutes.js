@@ -84,7 +84,7 @@ router.patch("/:id", async (req, res) => {
 
         if(req.file){
             let author = await authorModel.findById(req.params.id).exec()
-            fs.unlinkSync(author.authorImage)
+            fs.unlinkSync(author.authorImage);
             authorData["authorImage"]=req.file.path
         }
         
