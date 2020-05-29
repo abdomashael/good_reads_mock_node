@@ -20,20 +20,20 @@ Good Reads website using MERN stack Intake 40 IoT ITI
 # Demo
 [Click ME :)](http://34.107.102.252:3001/)
 
+# For Try
+1- Node : 
+    - npm install 
+    - node index.js
+2- React :
+    - open react0 folder
+    - npm install
+    - npm start
+
 # Contributors 
 - Fady Jan
 - Omar Akram 
 - Lamis Al Zobiedy
 - Abdelrahman Masheal 
-
-# Installtion Guide
-
-- 1)
-- 2)
-- 3)
-- 4)
-- 5)
-- 6)
 
 # Features
 - Login
