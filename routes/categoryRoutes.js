@@ -1,11 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const categoryModel = require("../models/categoryModel");
+const multer = require('multer');
+const fs = require("fs");
 
 const checkIsAdmin = require("../middlewares/admin_check");
 
 
 const checkJWT = require("../middlewares/jwt_auth")
+
+const storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, './public/category_imgs/')
+    },
+    filename: function (req, file, callback) {
+        callback(null, new Date().toISOString() + file.originalname);
+    }
+});
+const upload = multer({storage: storage});
+
 
 router.get("/", async (req, res) => {
     try {
@@ -35,21 +48,24 @@ router.use(checkJWT)
 
 router.use(checkIsAdmin)
 
-router.post("/", async (req, res) => {
-    try {
-        // Here we need to check the JWT token before creating a new category
-        const newCategory = new categoryModel({
-            categoryName:req.body.categoryName,
-            summary:req.body.summary
+router.post("/", upload.single('categoryImage'), async (req, res) => {
+        try {
+            // Here we need to check the JWT token before creating a new category
+            const newCategory = new categoryModel({
+                    categoryName: req.body.categoryName,
+                    categoryImage: req.file.path,
+                    summary: req.body.summary
+                }
+            );
+            const category = await newCategory.save();
+            res.json(category);
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(409);
         }
-        );
-        const category = await newCategory.save();
-        res.json(category);
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(409);
     }
-});
+)
+;
 
 // //Search by name just in case because every name is unique
 // router.get('/:name', async (req, res) => {
@@ -68,7 +84,16 @@ router.post("/", async (req, res) => {
 router.patch("/:id", async (req, res) => {
     try {
         // Here we need to check the JWT token before updating a category
-        const categoryData = req.body;
+        let categoryData = {
+            categoryName: req.body.categoryName,
+            summary: req.body.summary
+        };
+        if (req.file) {
+            let category = await categoryModel.findById(req.params.id).exec()
+            fs.unlinkSync(category.categoryImage);
+            categoryData["categoryImage"] = req.file.path
+        }
+
         const editedCategory = await categoryModel.updateOne({_id: req.params.id}, categoryData);
         //202 means accepted
         res.status(202).json(editedCategory.nModified);
