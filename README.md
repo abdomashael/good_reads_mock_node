@@ -20,6 +20,10 @@ Good Reads website using MERN stack Intake 40 IoT ITI
 # Demo
 [Click ME :)](http://34.107.102.252:3001/)
 
+for test and admin login use:
+- Email : root@mail.com
+- Password : 123456789
+
 # For Try
 - Node : 
     - npm install 
