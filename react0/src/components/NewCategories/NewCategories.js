@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Newarray = (props) => {
   const [array, setArray] = useState([]);
   const [type, setType] = useState("cat");
+
   useEffect(() => {
     console.log("cats page", props.HomePage);
 
@@ -40,8 +41,13 @@ const Newarray = (props) => {
         >
           <div class="cardd">
             <div class="cardd-image">
-              {type === "cats" ? (
-                ""
+              {
+              type === "cats" ? (
+                <img
+                class="cardd-image w-100 h-100"
+                // src = {`http://34.107.102.252:3000/${item.CategoryImage}`} when updated by omar and sho3la uncommnet this line
+                src="https://media-exp1.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0?e=2159024400&v=beta&t=C7KMOtnrJwGrMXmgIk2u1B8a7VRfgxMwXng9cdP9kZk"
+              ></img>
               ) : (
                 <img
                   class="cardd-image w-100 h-100"

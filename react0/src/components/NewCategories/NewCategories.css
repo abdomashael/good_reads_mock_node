@@ -1,7 +1,8 @@
 .mainc {
   margin-top: 10px;
+  margin-left: 9%;
   margin-bottom: 50px;
-  width: 100vw;
+  width: 80vw;
   display: flex;
   overflow-y: hidden;
   overflow-x: auto;
@@ -24,7 +25,7 @@
 }
 .cardd-image {
   grid-area: image;
-  background: url("img1.jpg");
+  /* background: url("img2.jpg"); */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
