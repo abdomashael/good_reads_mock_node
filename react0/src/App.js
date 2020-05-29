@@ -9,7 +9,6 @@ import ListingCategories from "./components/ListingCategories/ListingCategories"
 import AdminPanel from './components/AdminPanel/AdminPanel';
 import MainNavBar from './components/MainNavBar/mainNavBar';
 import HotBooks from './components/HotBooks/HotBooks';
-import ListingCatogries from "./components/ListingCatogries/ListingCatogries";
 import Author from './components/Author/Author';
 import ListingAuthors from './components/ListingAuthors/ListingAuthors';
 import PaginationCompo from './components/Pagentaion/Pagentaion';
