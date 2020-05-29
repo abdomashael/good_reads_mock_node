@@ -21,10 +21,10 @@ Good Reads website using MERN stack Intake 40 IoT ITI
 [Click ME :)](http://34.107.102.252:3001/)
 
 # For Try
-1- Node : 
+- Node : 
     - npm install 
     - node index.js
-2- React :
+- React :
     - open react0 folder
     - npm install
     - npm start
